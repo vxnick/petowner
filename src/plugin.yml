@@ -1,0 +1,34 @@
+name: PetOwner
+main: com.vxnick.petowner.PetOwner
+version: 0.1.0
+depend: [Vault]
+
+commands:
+  petowner:
+    description: Manage ownership of pets
+    usage: /<command> help for a list of commands
+    aliases: [po, pet]
+permissions:
+  petowner.check:
+    description: Show the owner of a pet
+    default: true
+  petowner.set.own:
+    description: Transfer ownership of your pet to another player
+    default: true
+  petowner.set.any:
+    description: Transfer ownership of any pet to another player
+    default: op
+  petowner.unset.own:
+    description: Remove ownership from your pet
+    default: true
+  petowner.unset.any:
+    description: Remove ownership from any pet
+    default: op
+  petowner.admin.*:
+    description: Administrative commands
+    default: op
+    children:
+      petowner.set.own: true
+      petowner.set.any: true
+      petowner.unset.own: true
+      petowner.unset.any: true
